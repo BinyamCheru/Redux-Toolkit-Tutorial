@@ -1,4 +1,3 @@
-import { act } from "react";
 import { createStore } from "redux";
 
 const initialState = {
@@ -56,3 +55,31 @@ const store = createStore(reducer);
 // store.dispatch({ type: "account/payLoan" });
 // console.log(store.getState());
 
+// Action creators
+const deposit = (amount) => {
+  return { type: "account/deposit", payload: amount };
+};
+
+const withdraw = (amount) => {
+  return { type: "account/withdraw", payload: amount };
+};
+
+const requestLoan = (amount, purpose) => {
+  return {
+    type: "account/requestLoan",
+    payload: { amount, purpose },
+  };
+};
+
+const payLoan = () => {
+  return { type: "account/payLoan" };
+};
+
+store.dispatch(deposit(500));
+console.log(store.getState());
+store.dispatch(withdraw(200));
+console.log(store.getState());
+store.dispatch(requestLoan(1000, "Buy a car"));
+console.log(store.getState());
+store.dispatch(payLoan());
+console.log(store.getState());
