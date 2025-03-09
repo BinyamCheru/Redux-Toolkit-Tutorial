@@ -28,6 +28,6 @@ export const createCustomer = (fullName, nationalID) => {
 };
 
 export const updateName = (fullName) => {
-  return { type: "account/updateName", payload: fullName };
+  return { type: "customer/updateName", payload: fullName };
 };
 export default customerReducer;
